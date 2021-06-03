@@ -1,0 +1,101 @@
+<div class="container-fluid" *ngIf="showVaccineDetails">
+  <form [formGroup]="vaccineForm">
+    <div class="mb-3 col-4">
+      <label for="exampleInputPin" class="form-label">Pincode</label>
+      <input type="number" class="form-control" formControlName="pinCode" id="exampleInputPin" placeholder="Please Enter Pincode here">
+
+    </div>
+    <div class="mb-3 col-4">
+      <label for="exampleInputDate" class="form-label">Date</label>
+      <input type="date" class="form-control" formControlName="date" dateFormat="dd-MMM-yyyy" id="exampleInputDate">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </form>
+</div>
+
+<div class="row" *ngIf="!showVaccineDetails">
+
+<!-- <div class="card m-3" style="width: 18rem;"> -->
+  <!-- <img src="..." class="card-img-top" alt="..."> -->
+  <!-- <div class="card-body">
+    <h5 class="card-title">State</h5><h5 class="card-title">{{v.state_name}}</h5>
+    <h5 class="card-title">Address-{{v.address}}</h5>
+    <h5 class="card-title">State-{{v.state_name}}</h5>
+    <h5 class="card-title">District-{{v.district_name}}</h5>
+    <h5 class="card-title">Pincode-{{v.pincode}}</h5>
+    <h5 class="card-title">Date-{{v.sessions[0].date}}</h5>
+    <h5 class="card-title">Min Age Limit-{{v.sessions[0].min_age_limit}}</h5>
+    <h5 class="card-title">Availabe Capacity of Dose 1-{{v.sessions[0].availability_capacity_dose1}}</h5>
+    <h5 class="card-title">Availabe Capacity of Dose 2-{{v.sessions[0].availability_capacity_dose2}}</h5>
+
+
+  </div> -->
+
+  <table id="dtBasicExample" class="table table-success" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th class="th-sm">State
+
+        </th>
+        <th class="th-sm">Address
+
+        </th>
+        <th class="th-sm">District
+
+        </th>
+        <th class="th-sm">Pincode
+
+        </th>
+        <th class="th-sm">Date
+
+        </th>
+        <th class="th-sm">Min Age Limit
+
+        </th>
+        <th class="th-sm">Availabe Capacity of Dose 1
+
+        </th>
+        <th class="th-sm">Availabe Capacity of Dose 2
+
+        </th>
+        <th class="th-sm">ACTION
+
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let v of vaccines;let i = index;'>
+        <td>{{v.state_name}}</td>
+        <td>{{v.address}}</td>
+        <td>{{v.district_name}}</td>
+        <td>{{v.pincode}}</td>
+        <td>{{v.sessions[0].date}}</td>
+        <td>{{v.sessions[0].min_age_limit}}</td>
+        <td>{{v.sessions[0].available_capacity_dose1}}</td>
+        <td>{{v.sessions[0].available_capacity_dose2}}</td>
+        <td>
+          <button class="btn btn-primary"><a href="https://www.cowin.gov.in/home" style="color: #ffff;">Book Your Slot</a></button>
+        </td>
+
+      </tr>
+    </tbody>
+    <!-- <tfoot>
+      <tr>
+        <th>Name
+        </th>
+        <th>Position
+        </th>
+        <th>Office
+        </th>
+        <th>Age
+        </th>
+        <th>Start date
+        </th>
+        <th>Salary
+        </th>
+      </tr>
+    </tfoot> -->
+  </table>
+<!-- </div> -->
+</div>
